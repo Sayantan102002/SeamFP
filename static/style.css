@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Manrope:wght@400;600;700;800&display=swap');:root{--bg:#090e16;--panel:#111b29;--line:#29394b;--text:#e9f0f8;--muted:#9aabbd;--cyan:#75d9d1;--lime:#c7e991}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#173047,transparent 38%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif}header{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 max(calc((100vw - 1120px)/2),5vw);gap:25px;position:sticky;top:0;background:#090e16ed;z-index:3}.brand{font:12px 'DM Mono';letter-spacing:1px;color:var(--text);text-decoration:none}.brand b{color:var(--cyan)}nav{margin-left:auto;display:flex;gap:22px}nav a{font-size:12px;color:var(--muted);text-decoration:none}.pill{font:10px 'DM Mono';color:var(--lime);border:1px solid #566b42;border-radius:20px;padding:7px}.hero,main>section,footer{max-width:1120px;margin:auto}.hero{padding:95px 20px 65px}.hero small,section>small{font:10px 'DM Mono';letter-spacing:2px;color:var(--cyan)}h1{font:800 clamp(48px,7vw,80px)/1.05 Manrope;letter-spacing:-4px;margin:20px 0}h1 em{font-style:normal;color:var(--lime)}.hero p,.muted{max-width:670px;color:var(--muted);line-height:1.7;font-size:14px}.button,button{display:inline-block;background:var(--cyan);color:#071419;border:0;border-radius:6px;padding:13px 17px;text-decoration:none;font-weight:700;font-size:12px;cursor:pointer}.hero .button{margin-top:12px}.stats{display:flex;gap:50px;border-top:1px solid var(--line);margin-top:55px;padding-top:22px}.stats div{display:grid;gap:6px}.stats b{font:700 22px Manrope}.stats span{font-size:11px;color:var(--muted)}main>section{padding:48px 20px}h2{font:700 31px Manrope;letter-spacing:-1px;margin:12px 0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}.cards article,.panel{background:linear-gradient(145deg,#142232,#0e1723);border:1px solid var(--line);border-radius:10px;padding:22px}.cards label,.panel h3{font:10px 'DM Mono';color:var(--muted);letter-spacing:1px}.cards article>b{display:block;color:var(--lime);font:700 35px Manrope;margin:10px 0}.cards article>span{font-size:11px;color:var(--muted)}.work{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:22px}.drop{display:block;border:1px dashed #4d7180;border-radius:8px;padding:22px;text-align:center;color:var(--muted);font-size:12px}.drop input{display:block;margin:12px auto 0;max-width:210px}.preview{height:230px;margin:14px 0;background:#080e16;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#8495a9;font-size:12px;overflow:hidden;padding:10px;text-align:center}.preview img{max-width:100%;max-height:100%;object-fit:contain}.control{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;margin:14px 0}select{background:#0a121c;color:var(--text);border:1px solid var(--line);padding:8px;border-radius:5px}.notice{background:#0a1420;border:1px solid var(--line);border-radius:7px;padding:13px;margin-top:14px;color:var(--muted);font-size:12px;line-height:1.6;min-height:44px}.hint,li{color:var(--muted);font-size:11px;line-height:1.7}.modelstats{margin:0 0 20px;border:0;padding:0}.methods h3{font:600 17px Manrope}.methods article>b{font:12px 'DM Mono';color:var(--lime)}.methods p{font-size:12px;line-height:1.6;color:var(--muted)}footer{border-top:1px solid var(--line);padding:24px 20px 40px;font:10px 'DM Mono';letter-spacing:1px;color:var(--cyan);display:flex;justify-content:space-between}footer span{color:var(--muted)}button:disabled{opacity:.5;cursor:wait}@media(max-width:720px){nav{display:none}.pill{margin-left:auto}.hero{padding:65px 20px}.hero h1{letter-spacing:-2px}.stats{gap:20px;flex-wrap:wrap}.cards,.work{grid-template-columns:1fr}footer{display:grid;gap:8px}}
+.author-block {
+    margin-top: 28px;
+    padding-left: 15px;
+    border-left: 2px solid var(--cyan);
+}
+
+.author-block h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.author-block sup {
+    color: var(--cyan);
+}
+
+.author-block p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.conference-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+    margin-top: 24px;
+    padding: 17px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.conference-block strong {
+    width: 100%;
+    color: var(--lime);
+    font-size: 13px;
+}
+.btn primary{
+    margin-right: 50px;
+}

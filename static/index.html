@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fingerprint Integrity Lab</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<header><a class="brand" href="#">⌁ FINGERPRINT <b>INTEGRITY LAB</b></a><nav><a href="#method">Methodology</a><a href="#detector">Live detector</a><a href="#afis">AFIS analysis</a></nav><span class="pill">● LOCAL DEMO</span></header><main>
+<section class="hero">
+    <div class="eyebrow">
+        ICTCON 2026 · PAPER ID 189 · RESEARCH DEMONSTRATOR
+    </div>
+
+    <h1>
+        Detecting Content-Aware<br>
+        <em>Seam Carving</em> in Forensic Fingerprint Images
+    </h1>
+
+    <div class="author-block">
+        <h3>Sayantan Chakraborty<sup>1</sup>,
+            Shitala Prasad<sup>1</sup></h3>
+
+        <p>
+            <sup>1</sup>School of Mathematics and Computer Science,
+            Indian Institute of Technology Goa, Ponda, India
+        </p>
+    </div>
+
+    <div class="conference-block">
+        <strong>4th International Intelligent Computing and
+        Technologies Conference</strong>
+        <span>ICTCon 2026</span>
+        <span>2–4 November 2026</span>
+        <span>Paper ID: 189</span>
+    </div>
+
+    <p class="lead">
+        An interactive research demonstration of content-aware
+        seam-carving detection in forensic fingerprint images
+        using LBP and Gradient Magnitude Histograms with SVM.
+    </p>
+
+    <div class="hero-actions">
+        <a class="btn primary" href="#workbench">
+            Explore the Demo ↘
+        </a>
+        <a class="btn secondary" href="#method">
+            Research Methodology
+        </a>
+    </div>
+</section>
+<section><small>REPORTED EXPERIMENTAL RESULTS</small><h2>Detection performance</h2><p class="muted">Grouped out-of-fold accuracy reported in the research paper. These are aggregate results, not predictions for an uploaded image.</p><div class="cards"><article><label>5% seam removal</label><b>95.62%</b><span>LBP + Gradient · Accuracy</span></article><article><label>10% seam removal</label><b>98.75%</b><span>LBP + Gradient · Accuracy</span></article><article><label>20% seam removal</label><b>99.22%</b><span>LBP + Gradient · Accuracy</span></article></div></section>
+<section id="workbench"><small>INTERACTIVE WORKBENCH</small><h2>Inspect a fingerprint</h2><p class="muted">Upload one fingerprint image. The server decodes it as grayscale.</p><div class="work"><article class="panel"><h3>01 / IMAGE INPUT</h3><label class="drop">Choose a fingerprint image<input id="imageInput" type="file" accept="image/*"></label><div id="sourcePreview" class="preview">Your selected image will appear here.</div><label class="control">Seam-carving ratio <select id="ratio"><option value="5">5%</option><option value="10">10%</option><option value="20">20%</option></select></label><button id="carveBtn">Simulate seam carving</button><p class="hint">Reference backward-energy vertical seam removal followed by bilinear restoration.</p></article><article class="panel"><h3>02 / TRANSFORMED IMAGE</h3><div id="carvedPreview" class="preview">The simulated image will appear here.</div><div id="carveInfo" class="notice">Upload an image and run the simulation.</div></article></div></section>
+<section id="detector"><small>MODEL INFERENCE</small><h2>LBP + Gradient SVM detector</h2><p class="muted">Extracts a 320-dimensional feature vector from one uploaded image and applies the ratio-specific model.</p><div class="panel"><div class="stats modelstats"><div><b>Selected model</b><span id="modelName">svm_5.joblib</span></div><div><b>Feature vector</b><span>256 LBP + 64 gradient</span></div><div><b>Model status</b><span id="modelStatus">Checking…</span></div></div><button id="detectBtn">Classify uploaded image</button><div id="detectResult" class="notice">Upload an image. Model files must be installed in artifacts/.</div><p class="hint">Decision score is not a calibrated probability.</p></div></section>
+<section id="method"><small>FEATURE REPRESENTATION</small><h2>From image to descriptor</h2><div class="cards methods"><article><label>01</label><h3>Local Binary Patterns</h3><b>256 dimensions</b><p>P=8, R=1, method=default. 256-bin density histogram over [0,256].</p></article><article><label>02</label><h3>Gradient magnitude</h3><b>64 dimensions</b><p>OpenCV Sobel (CV_64F, ksize=3), magnitude histogram over [0,512].</p></article><article><label>03</label><h3>RBF-SVM</h3><b>320 dimensions</b><p>LBP concatenated before gradient. Fitted StandardScaler is bundled in the pipeline.</p></article></div></section>
+<section id="afis"><small>OPTIONAL NBIS INTEGRATION</small><h2>Minutiae matching comparison</h2><div class="panel"><div class="work"><label>Original fingerprint<input type="file" id="afisOriginal" accept="image/*"></label><label>Carved/restored fingerprint<input type="file" id="afisCarved" accept="image/*"></label></div><button id="afisBtn">Run Bozorth3 comparison</button><div id="afisResult" class="notice">Requires NBIS mindtct and bozorth3 on the server PATH.</div><p class="hint">Threshold 40 is paper-context only, not a universal AFIS threshold. One pair is not an operational false-rejection estimate.</p></div></section>
+<section><small>RESEARCH USE & LIMITATIONS</small><h2>Interpret results with care.</h2><ul><li>Live inference requires trained model files generated from the original experiment feature matrix.</li><li>Verify feature parity against the training NPZ before treating predictions as research-valid.</li><li>The seam-carving simulator is a reference implementation; verify equivalence with the exact dataset-generation library and parameters.</li><li>Paper-reported benchmark values are separate from live predictions.</li></ul></section></main><footer>FINGERPRINT INTEGRITY LAB <span>Local research demonstrator · ICTCon 2026</span></footer><script src="/static/app.js"></script></body></html>
